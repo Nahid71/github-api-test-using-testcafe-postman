@@ -7,7 +7,7 @@ fixture `GitHub Tests`
 
 const page = new HomePage();
 
-test('login as Nahid71', async t => {
+test('User name is displayed correctly', async t => {
     await t
          // Assinging a user.
         .useRole(nahidhassan)
