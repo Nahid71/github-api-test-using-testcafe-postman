@@ -1,6 +1,7 @@
 import { HomePage } from './homepage';
 import { nahidhassan } from './role'
 
+
 fixture `GitHub Tests`
     // starting page.
     .page `https://github.com`;
@@ -12,7 +13,6 @@ test('login as Nahid71', async t => {
          // Assinging a user.
         .useRole(nahidhassan)
         // checking for successfull login.
-        .expect(page.dropdownHeader.textContent).contains('Nahid71')
-
+        .expect(page.dropdownHeader.textContent).contains('Nahid71');
 
 });

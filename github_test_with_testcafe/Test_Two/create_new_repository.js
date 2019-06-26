@@ -10,7 +10,7 @@ fixture `Create new repository`
 
 const repository = new NewRepository();
 const page = new HomePage();
-const successPage = new CreatedRepo();
+
 
 test('login as Nahid71', async t => {
     await t

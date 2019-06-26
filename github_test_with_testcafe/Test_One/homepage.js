@@ -10,7 +10,7 @@ export class LoginPage {
 
 export class HomePage {
     constructor () {
-        this.avatar = Selector('.avatar');
+
         this.dropdownHeader = Selector('.header-nav-current-user');
     }
 }
