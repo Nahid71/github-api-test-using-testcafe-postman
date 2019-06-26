@@ -1,5 +1,5 @@
 import { Role } from 'testcafe';
-import { LoginPage } from './page_object';
+import { LoginPage } from './page-object';
 
 const page = new LoginPage();
 const loginPageUrl = 'https://github.com/login';
