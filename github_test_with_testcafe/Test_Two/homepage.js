@@ -11,5 +11,6 @@ export class LoginPage {
 export class HomePage {
     constructor () {
         this.newrepo = Selector('.btn-primary').withExactText('New');
+        this.signInButton = Selector('.HeaderMenu-link').nth(5);
     }
 }

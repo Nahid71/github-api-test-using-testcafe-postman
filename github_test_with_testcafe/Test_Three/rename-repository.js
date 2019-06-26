@@ -48,6 +48,7 @@ test('login as Nahid71', async (t) => {
     await t
         .click(renameButton)
         // Check the repository is renamed successfully .
-        .expect(Selector('title').innerText).eql('Nahid71/updatename')
+        .expect(Selector('title').innerText).eql('Nahid71/updatename');
+        console.log("repository renamed successfully")
 
 });
