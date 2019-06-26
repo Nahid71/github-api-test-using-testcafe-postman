@@ -17,3 +17,14 @@ export class NewRepository {
         this.create   = Selector('.first-in-line');
     }
 }
+
+export class DeleteRepository {
+    constructor () {
+        // Delete a repository
+       this.selectSettings = Selector('.reponav-item').withExactText('Settings');
+       this.deleteButton = Selector('.btn').withExactText('Delete this repository');
+       this.confirmDelete = Selector('.btn').withExactText('I understand the consequences, delete this repository');
+       this.confirmationDiolog = Selector('.input-block').withAttribute('aria-label', 'Type in the name of the repository to confirm that you want to delete this repository.');
+    }
+}
+

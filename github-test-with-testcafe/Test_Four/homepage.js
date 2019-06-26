@@ -12,5 +12,6 @@ export class HomePage {
     constructor () {
         this.newrepo = Selector('.btn-primary').withExactText('New');
         this.dropdownHeader = Selector('.header-nav-current-user');
+        this.signInButton = Selector('.HeaderMenu-link').nth(5);
     }
 }
