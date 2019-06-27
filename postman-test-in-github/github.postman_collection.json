@@ -1,0 +1,345 @@
+{
+	"info": {
+		"_postman_id": "5f1a65bd-db9a-4bcd-810d-51538900e037",
+		"name": "github",
+		"description": "Store all my github endpoints test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List all my repositories",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0adb706a-ef20-43f9-b0ce-435f5f60a1fc",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"awesome-interview-questions\");",
+							"});",
+							"",
+							"pm.test(\"checking that I get all the repositories\", function () {",
+							"    pm.expect(Object.keys(pm.response.json()).length).to.eql(19);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/users/Nahid71/repos",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"Nahid71",
+						"repos"
+					]
+				},
+				"description": "This test will show all of my github repositories"
+			},
+			"response": []
+		},
+		{
+			"name": "Get user all repositories",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "49cc2ea4-b3bb-4b96-981f-310a1faedc01",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"bitmap-fonts\");",
+							"});",
+							"",
+							"pm.test(\"checking that I get all the repositories\", function () {",
+							"    pm.expect(Object.keys(pm.response.json()).length).to.eql(9);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/users/user/repos",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"user",
+						"repos"
+					]
+				},
+				"description": "This test will chek all user repositories"
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new repository",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "62c7fa0b-c4d9-4db8-802f-9ca92b9239b6",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Hello-World\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Hello-World\",\n  \"description\": \"This is your first repository\",\n  \"homepage\": \"https://github.com\",\n  \"private\": false,\n  \"has_issues\": true,\n  \"has_projects\": true,\n  \"has_wiki\": true\n}"
+				},
+				"url": {
+					"raw": "{{url}}/user/repos",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"user",
+						"repos"
+					]
+				},
+				"description": "In this test I will create a new repository"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a repository",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/repos/:Nahid71/:Hello-World",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"repos",
+						":Nahid71",
+						":Hello-World"
+					],
+					"variable": [
+						{
+							"key": "Nahid71",
+							"value": ""
+						},
+						{
+							"key": "Hello-World",
+							"value": ""
+						}
+					]
+				},
+				"description": "In this test I try to delete a repository"
+			},
+			"response": [
+				{
+					"name": "Delete a repository",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/repos/:Nahid71/:Hello-World",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"repos",
+								":Nahid71",
+								":Hello-World"
+							],
+							"variable": [
+								{
+									"key": "Nahid71",
+									"value": ""
+								},
+								{
+									"key": "Hello-World",
+									"value": ""
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 27 Jun 2019 09:42:52 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "GitHub.com"
+						},
+						{
+							"key": "Status",
+							"value": "404 Not Found"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "5000"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "4998"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1561632172"
+						},
+						{
+							"key": "X-GitHub-Media-Type",
+							"value": "github.v3; format=json"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubdomains; preload"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "deny"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "origin-when-cross-origin, strict-origin-when-cross-origin"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'none'"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "X-GitHub-Request-Id",
+							"value": "E654:7C73:1370A24:179172B:5D148F6A"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Not Found\",\n    \"documentation_url\": \"https://developer.github.com/v3\"\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "N86981171h",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "Nahid71",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "1297a574-1d8b-4db2-a249-d7470e5316c3",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "3648b16a-defb-428d-92a3-9f79685c469a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "f8cd459f-541e-4049-b101-37315e6c45c3",
+			"key": "url",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
