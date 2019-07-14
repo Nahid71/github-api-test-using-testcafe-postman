@@ -1,14 +1,12 @@
-import { Role } from 'testcafe';
-import { LoginPage } from './page-object';
+import { Role } from "testcafe";
+import { LoginPage } from "./page-object";
 
 const page = new LoginPage();
-const loginPageUrl = 'https://github.com/login';
+const loginPageUrl = "https://github.com/login";
 
 export const nahidhassan = Role(loginPageUrl, async t => {
-    await t
-        // this credentials is real and I use it so that you can try this test easly please dont try to hurm me.
-        .typeText(page.login, 'Nahid71')
-        .typeText(page.password, 'N86981171h')
-        .click(page.signIn);
+  await t
+    // this credentials is not real you have to use your own credentials.    .typeText(page.login, "Nahid71")
+    .typeText(page.password, "****")
+    .click(page.signIn);
 });
-
